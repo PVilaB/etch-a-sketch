@@ -1,5 +1,6 @@
 const gridTemplate = document.querySelector('.grid-template');
 const clearBtn = document.querySelector('.clear-btn');
+// const cell = gridTemplate.querySelectorAll("div");
 let rows = 8;
 let columns = 8;
 
@@ -20,11 +21,13 @@ function makeGrid (rows, cols){
         const cell = document.createElement('div');
         cell.classList.add('cell'); 
         gridTemplate.appendChild(cell);
-        // console.log(index)
-    }
+        cell.onmouseenter = () =>{
+            cell.classList.add('black');
+        };
+      
+    };
     
 }
-
 function clear(){
     gridTemplate.innerHTML= '';
     makeGrid(8,8);
@@ -42,13 +45,5 @@ function gridRange(){
         makeGrid(val,val);
     }
     clearBtn.onclick = () => clear();
-    const cell = document.querySelector('.cell');
-    console.log(cell);
-    cell.addEventListener('mouseover', ()=>{
-        cell.classList.toggle = 'black';
-    });
-    
 };
 gridRange()
-
-
